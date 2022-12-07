@@ -1,0 +1,164 @@
+{
+  "tests": [
+    {
+      "name": "Test 1",
+      "setup": "",
+      "run": "grep 'TEST 01-simple PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 2",
+      "setup": "",
+      "run": "grep 'TEST 02-exprs PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 3",
+      "setup": "",
+      "run": "grep 'TEST 03-div-rem-mult PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 4",
+      "setup": "",
+      "run": "grep 'TEST 04-if PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 5",
+      "setup": "",
+      "run": "grep 'TEST 05-logical PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 6",
+      "setup": "",
+      "run": "grep 'TEST 06-global-ints PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 7",
+      "setup": "",
+      "run": "grep 'TEST 07-while PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 8",
+      "setup": "",
+      "run": "grep 'TEST 08-global-init-strings PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 9",
+      "setup": "",
+      "run": "grep 'TEST 09-else-otherwise PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 10",
+      "setup": "",
+      "run": "grep 'TEST 10-function-noargs-int PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 11",
+      "setup": "",
+      "run": "grep 'TEST 11-function-noargs-void-string PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 12",
+      "setup": "",
+      "run": "grep 'TEST 12-function-someargs-int PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 13",
+      "setup": "",
+      "run": "grep 'TEST 13-shortcircuit PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 14",
+      "setup": "",
+      "run": "grep 'TEST 14-repeat PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 15",
+      "setup": "",
+      "run": "grep 'TEST 15-function-args-recur PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test 16",
+      "setup": "",
+      "run": "grep 'TEST 16-function-locals-recur PASSING' out.log",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    }
+  ]
+}
