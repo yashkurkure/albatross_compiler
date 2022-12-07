@@ -1,0 +1,4 @@
+var s string := "CS473";
+
+printstring(s);
+return 0;

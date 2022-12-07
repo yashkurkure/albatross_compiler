@@ -1,0 +1,7 @@
+if (0&&0)    { printint(0); }
+if (1&&1)    { printint(1); }
+if (2&&1)    { printint(2); }
+if (1024&&1) { printint(3); }
+if (1&&0)    { printint(4); }
+if (0&&1)    { printint(5); }
+exit(0);

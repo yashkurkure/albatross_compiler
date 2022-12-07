@@ -1,0 +1,51 @@
+var s0 string := "ZMPp" ;
+var s1 string := "T" ;
+var s2 string := "9gMbWpVyD7l9WIK" ;
+var s3 string := "BhCEKg9239KzXIw" ;
+var s4 string := "MsP" ;
+var s5 string := "ImucrdKC0rhcqk5kl" ;
+var s6 string := "2LZ4f0m2pI0" ;
+var s7 string := "i3YSIQ18thIvx" ;
+var s8 string := "egwYnSxFA462aBx" ;
+var s9 string := "4uDTEsTuwTYt" ;
+fun fun24209 string () { return "wXL6FiS9O71eeZi2";}
+fun fun61583 void () { printstring("xTHB39KKeF4pbwiWNe");}
+fun fun40574 string () { return s6;}
+fun fun15604 void () { printstring(s0);}
+fun fun34336 string () { return s7;}
+fun fun15480 void () { printstring("KMl93zQAX9J");}
+fun fun55625 string () { return "Ck0oxx5qwtOZAzbQn";}
+fun fun10950 void () { printstring(s6);}
+fun fun17739 string () { return "i7ZSJn72";}
+fun fun41248 void () { printstring(s1);}
+fun fun51657 string () { return s9;}
+fun fun63853 void () { printstring("L6tFxzZJ8eCM");}
+fun fun41279 string () { return s8;}
+fun fun63106 void () { printstring(s5);}
+fun fun40318 string () { return s9;}
+fun fun54200 void () { printstring("HkbbGMtvVXqjmIOIj");}
+fun fun45315 string () { return s2;}
+fun fun10820 void () { printstring(s3);}
+fun fun55791 string () { return s9;}
+fun fun1921 void () { printstring("bQRs0xiXDkag");}
+fun41248();
+printstring(fun34336());
+fun15480();
+printstring(fun24209());
+fun1921();
+printstring(fun41279());
+fun54200();
+printstring(fun55625());
+fun10950();
+printstring(fun55625());
+fun15480();
+printstring(fun41279());
+fun54200();
+printstring(fun55791());
+fun63106();
+printstring(fun17739());
+fun41248();
+printstring(fun40574());
+fun15480();
+printstring(fun40318());
+exit(0);

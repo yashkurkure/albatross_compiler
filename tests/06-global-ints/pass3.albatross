@@ -1,0 +1,27 @@
+var variable int := 0;
+
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+variable := 473;
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+printint(variable);
+return 0;

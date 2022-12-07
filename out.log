@@ -1,0 +1,183 @@
+rm -f albatrosscc lex.yy.c y.tab.c y.tab.h y.output *.o
+cc -Wall -Wextra -Werror -std=c17 -Wpedantic -O0 -fsanitize=address -g -c table.c
+cc -Wall -Wextra -Werror -std=c17 -Wpedantic -O0 -fsanitize=address -g -c symbol.c
+cc -Wall -Wextra -Werror -std=c17 -Wpedantic -O0 -fsanitize=address -g -c ast.c
+yacc -o y.tab.c -dv parser.y
+echo "y.tab.h was created at the same time as y.tab.c"
+y.tab.h was created at the same time as y.tab.c
+cc -Wall -Wextra -Werror -std=c17 -Wpedantic -O0 -fsanitize=address -g -c semantic_analysis_symbols.c
+cc -Wall -Wextra -Werror -std=c17 -Wpedantic -O0 -fsanitize=address -g -c main.c
+lex lexer.lex
+cc -O0 -fsanitize=address -g -c lex.yy.c
+cc -Wall -Wextra -Werror -std=c17 -Wpedantic -O0 -fsanitize=address -g -c y.tab.c
+cc -Wall -Wextra -Werror -std=c17 -Wpedantic -O0 -fsanitize=address -g -c semantic_analysis_types.c
+cc -Wall -Wextra -Werror -std=c17 -Wpedantic -O0 -fsanitize=address -g -c frames.c
+cc -Wall -Wextra -Werror -std=c17 -Wpedantic -O0 -fsanitize=address -g -c print_ast.c
+cc -Wall -Wextra -Werror -std=c17 -Wpedantic -O0 -fsanitize=address -g -c transform.c
+cc -Wall -Wextra -Werror -std=c17 -Wpedantic -O0 -fsanitize=address -g -c mips_ast.c
+cc -Wall -Wextra -Werror -std=c17 -Wpedantic -O0 -fsanitize=address -g -o albatrosscc main.o lex.yy.o y.tab.o symbol.o table.o ast.o semantic_analysis_types.o semantic_analysis_symbols.o frames.o print_ast.o transform.o mips_ast.o
+Running [42mpositive test[0m 01-simple/pass1.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 554ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 01-simple/pass2.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 393ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 01-simple/pass3.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 387ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 01-simple/pass4.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 483ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 01-simple PASSING                [0m
+[42m                   TEST 01-simple PASSING                [0m
+[42m                   TEST 01-simple PASSING                [0m
+Running [42mpositive test[0m 02-exprs/pass1.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 506ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 02-exprs/pass2.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 533ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 02-exprs/pass3.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 399ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 02-exprs/pass4.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 411ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 02-exprs/pass5.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 395ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 02-exprs/pass6.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 401ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 02-exprs/pass7.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 486ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 02-exprs/pass8.albatross	[42mCOMPILE OK in 5ms [0m	 [42mRUN OK in 534ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 02-exprs/pass9.albatross	[42mCOMPILE OK in 6ms [0m	 [42mRUN OK in 592ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 02-exprs PASSING                [0m
+[42m                   TEST 02-exprs PASSING                [0m
+[42m                   TEST 02-exprs PASSING                [0m
+Running [42mpositive test[0m 03-div-rem-mult/pass1.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 430ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 03-div-rem-mult/pass2.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 433ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 03-div-rem-mult/pass3.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 446ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 03-div-rem-mult/pass4.albatross	[42mCOMPILE OK in 7ms [0m	 [42mRUN OK in 641ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 03-div-rem-mult/pass5.albatross	[42mCOMPILE OK in 6ms [0m	 [42mRUN OK in 624ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 03-div-rem-mult PASSING                [0m
+[42m                   TEST 03-div-rem-mult PASSING                [0m
+[42m                   TEST 03-div-rem-mult PASSING                [0m
+Running [42mpositive test[0m 04-if/pass10.albatross	[42mCOMPILE OK in 24ms [0m	 [42mRUN OK in 1238ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 04-if/pass1.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 412ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 04-if/pass2.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 447ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 04-if/pass3.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 398ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 04-if/pass4.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 416ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 04-if/pass5.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 419ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 04-if/pass6.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 441ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 04-if/pass7.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 453ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 04-if/pass8.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 470ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 04-if/pass9.albatross	[42mCOMPILE OK in 28ms [0m	 [42mRUN OK in 1252ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 04-if PASSING                [0m
+[42m                   TEST 04-if PASSING                [0m
+[42m                   TEST 04-if PASSING                [0m
+Running [42mpositive test[0m 05-logical/pass1.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 431ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 05-logical/pass2.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 477ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 05-logical/pass3.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 508ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 05-logical/pass4.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 449ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 05-logical/pass5.albatross	[42mCOMPILE OK in 2ms [0m	 [42mRUN OK in 590ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 05-logical/pass6.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 537ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 05-logical/pass7.albatross	[42mCOMPILE OK in 26ms [0m	 [42mRUN OK in 1461ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 05-logical/pass8.albatross	[42mCOMPILE OK in 29ms [0m	 [42mRUN OK in 1266ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 05-logical PASSING                [0m
+[42m                   TEST 05-logical PASSING                [0m
+[42m                   TEST 05-logical PASSING                [0m
+Running [42mpositive test[0m 06-global-ints/pass10.albatross	[42mCOMPILE OK in 15ms [0m	 [42mRUN OK in 1094ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 06-global-ints/pass1.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 646ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 06-global-ints/pass2.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 397ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 06-global-ints/pass3.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 426ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 06-global-ints/pass4.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 540ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 06-global-ints/pass5.albatross	[42mCOMPILE OK in 2ms [0m	 [42mRUN OK in 491ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 06-global-ints/pass6.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 469ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 06-global-ints/pass7.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 482ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 06-global-ints/pass8.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 417ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 06-global-ints/pass9.albatross	[42mCOMPILE OK in 15ms [0m	 [42mRUN OK in 986ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 06-global-ints PASSING                [0m
+[42m                   TEST 06-global-ints PASSING                [0m
+[42m                   TEST 06-global-ints PASSING                [0m
+Running [42mpositive test[0m 07-while/pass1.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 435ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 07-while/pass2.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 478ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 07-while/pass3.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 443ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 07-while/pass4.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 422ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 07-while/pass5.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 476ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 07-while/pass6.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 459ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 07-while PASSING                [0m
+[42m                   TEST 07-while PASSING                [0m
+[42m                   TEST 07-while PASSING                [0m
+Running [42mpositive test[0m 08-global-init-strings/pass1.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 435ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 08-global-init-strings/pass2.albatross	[42mCOMPILE OK in 2ms [0m	 [42mRUN OK in 511ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 08-global-init-strings/pass3.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 445ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 08-global-init-strings/pass4.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 416ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 08-global-init-strings/pass5.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 469ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 08-global-init-strings PASSING                [0m
+[42m                   TEST 08-global-init-strings PASSING                [0m
+[42m                   TEST 08-global-init-strings PASSING                [0m
+Running [42mpositive test[0m 09-else-otherwise/pass1.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 402ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 09-else-otherwise/pass2.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 398ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 09-else-otherwise/pass3.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 482ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 09-else-otherwise/pass4.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 499ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 09-else-otherwise/pass5.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 453ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 09-else-otherwise PASSING                [0m
+[42m                   TEST 09-else-otherwise PASSING                [0m
+[42m                   TEST 09-else-otherwise PASSING                [0m
+Running [42mpositive test[0m 10-function-noargs-int/pass1.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 430ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 10-function-noargs-int/pass2.albatross	[42mCOMPILE OK in 2ms [0m	 [42mRUN OK in 453ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 10-function-noargs-int/pass3.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 507ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 10-function-noargs-int/pass4.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 484ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 10-function-noargs-int/pass5.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 475ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 10-function-noargs-int/pass6.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 546ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 10-function-noargs-int/pass7.albatross	[42mCOMPILE OK in 84ms [0m	 [42mRUN OK in 2568ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 10-function-noargs-int/pass8.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 485ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 10-function-noargs-int PASSING                [0m
+[42m                   TEST 10-function-noargs-int PASSING                [0m
+[42m                   TEST 10-function-noargs-int PASSING                [0m
+Running [42mpositive test[0m 11-function-noargs-void-string/pass1.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 389ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 11-function-noargs-void-string/pass2.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 406ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 11-function-noargs-void-string/pass3.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 450ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 11-function-noargs-void-string/pass4.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 486ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 11-function-noargs-void-string/pass5.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 418ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 11-function-noargs-void-string/pass6.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 467ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 11-function-noargs-void-string/pass7.albatross	[42mCOMPILE OK in 6ms [0m	 [42mRUN OK in 560ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 11-function-noargs-void-string/pass8.albatross	[42mCOMPILE OK in 5ms [0m	 [42mRUN OK in 517ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 11-function-noargs-void-string PASSING                [0m
+[42m                   TEST 11-function-noargs-void-string PASSING                [0m
+[42m                   TEST 11-function-noargs-void-string PASSING                [0m
+Running [42mpositive test[0m 12-function-someargs-int/pass1.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 469ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 12-function-someargs-int/pass2.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 437ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 12-function-someargs-int/pass3.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 452ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 12-function-someargs-int/pass4.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 406ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 12-function-someargs-int/pass5.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 468ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 12-function-someargs-int/pass6.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 433ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 12-function-someargs-int/pass7.albatross	[42mCOMPILE OK in 17ms [0m	 [42mRUN OK in 1136ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 12-function-someargs-int PASSING                [0m
+[42m                   TEST 12-function-someargs-int PASSING                [0m
+[42m                   TEST 12-function-someargs-int PASSING                [0m
+Running [42mpositive test[0m 13-shortcircuit/pass1.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 474ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 13-shortcircuit/pass2.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 562ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 13-shortcircuit/pass3.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 505ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 13-shortcircuit/pass4.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 712ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 13-shortcircuit/pass5.albatross	[42mCOMPILE OK in 14ms [0m	 [42mRUN OK in 785ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 13-shortcircuit/pass6.albatross	[42mCOMPILE OK in 14ms [0m	 [42mRUN OK in 674ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 13-shortcircuit PASSING                [0m
+[42m                   TEST 13-shortcircuit PASSING                [0m
+[42m                   TEST 13-shortcircuit PASSING                [0m
+Running [42mpositive test[0m 14-repeat/pass1.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 502ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 14-repeat/pass2.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 488ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 14-repeat/pass3.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 454ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 14-repeat/pass4.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 521ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 14-repeat/pass5.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 508ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 14-repeat/pass6.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 549ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 14-repeat/pass7.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 483ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 14-repeat/pass8.albatross	[42mCOMPILE OK in 5ms [0m	 [42mRUN OK in 570ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 14-repeat/pass9.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 490ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 14-repeat PASSING                [0m
+[42m                   TEST 14-repeat PASSING                [0m
+[42m                   TEST 14-repeat PASSING                [0m
+Running [42mpositive test[0m 15-function-args-recur/pass10.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 485ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 15-function-args-recur/pass11.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 1079ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 15-function-args-recur/pass12.albatross	[42mCOMPILE OK in 5ms [0m	 [42mRUN OK in 676ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 15-function-args-recur/pass1.albatross	[42mCOMPILE OK in 5ms [0m	 [42mRUN OK in 493ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 15-function-args-recur/pass2.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 442ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 15-function-args-recur/pass3.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 490ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 15-function-args-recur/pass4.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 433ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 15-function-args-recur/pass5.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 451ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 15-function-args-recur/pass6.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 441ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 15-function-args-recur/pass7.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 476ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 15-function-args-recur/pass8.albatross	[42mCOMPILE OK in 3ms [0m	 [42mRUN OK in 535ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 15-function-args-recur/pass9.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 603ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 15-function-args-recur PASSING                [0m
+[42m                   TEST 15-function-args-recur PASSING                [0m
+[42m                   TEST 15-function-args-recur PASSING                [0m
+Running [42mpositive test[0m 16-function-locals-recur/pass1.albatross	[42mCOMPILE OK in 4ms [0m	 [42mRUN OK in 488ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 16-function-locals-recur/pass2.albatross	[42mCOMPILE OK in 2ms [0m	 [42mRUN OK in 485ms[0m	 [42mDIFF OK[0m	
+Running [42mpositive test[0m 16-function-locals-recur/pass3.albatross	[42mCOMPILE OK in 7ms [0m	 [42mRUN OK in 706ms[0m	 [42mDIFF OK[0m	
+[42m                   TEST 16-function-locals-recur PASSING                [0m
+[42m                   TEST 16-function-locals-recur PASSING                [0m
+[42m                   TEST 16-function-locals-recur PASSING                [0m
+Finished in 65021ms
+16

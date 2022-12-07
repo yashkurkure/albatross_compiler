@@ -1,0 +1,16 @@
+fun f3 void() {
+  printstring("f3");
+}
+
+fun f2 void() {
+  printstring("f2");
+  f3();
+}
+
+fun f1 void () {
+  printstring("f1");
+  f2();
+}
+
+f1();
+return 0;

@@ -1,0 +1,8 @@
+var n int := 0;
+
+n := 10;
+repeat (n) {
+  n := n - 1;
+  printint(n);
+}
+return n;

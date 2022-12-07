@@ -1,0 +1,7 @@
+fun f void (i1 int, i2 int) {
+  printint(i1 + i2);
+  return;
+}
+
+f(400,73);
+return 0;

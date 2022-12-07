@@ -1,0 +1,14 @@
+fun f1 int () {
+  return 400;
+}
+
+fun f2 int () {
+  return 70;
+}
+
+fun f3 int () {
+  return 3;
+}
+
+printint(f1() + f2() + f3());
+return 0;

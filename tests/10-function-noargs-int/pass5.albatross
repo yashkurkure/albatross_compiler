@@ -1,0 +1,9 @@
+var v int := 0;
+
+fun f int () {
+  v := 473;
+  return v;
+}
+
+printint(v+f()+v);
+return 0;

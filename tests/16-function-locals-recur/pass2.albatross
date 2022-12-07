@@ -1,0 +1,13 @@
+fun recursive void (i int) {
+  var n int := i-1;
+
+  if (i == 0) { return; }
+  printint(i);
+  printstring(" ");
+  printint(n);
+  printstring(" ");
+  recursive(n);
+}
+
+recursive(10);
+return 0;

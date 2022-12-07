@@ -1,0 +1,11 @@
+fun f void () {
+  printint(200);
+}
+
+fun unused void () {
+  printstring("should not be called");
+  exit(1);
+}
+
+f();
+return 0;

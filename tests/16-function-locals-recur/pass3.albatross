@@ -1,0 +1,122 @@
+fun functionWithLocals void (i int) {
+    var i0 int := 0+i;
+    var i1 int := 1+i;
+    var i2 int := 2+i;
+    var i3 int := 3+i;
+    var i4 int := 4+i;
+    var i5 int := 5+i;
+    var i6 int := 6+i;
+    var i7 int := 7+i;
+    var i8 int := 8+i;
+    var i9 int := 9+i;
+    var i10 int := 10+i;
+    var i11 int := 11+i;
+    var i12 int := 12+i;
+    var i13 int := 13+i;
+    var i14 int := 14+i;
+    var i15 int := 15+i;
+    var i16 int := 16+i;
+    var i17 int := 17+i;
+    var i18 int := 18+i;
+    var i19 int := 19+i;
+    var i20 int := 20+i;
+    var i21 int := 21+i;
+    var i22 int := 22+i;
+    var i23 int := 23+i;
+    var i24 int := 24+i;
+    var i25 int := 25+i;
+    var i26 int := 26+i;
+    var i27 int := 27+i;
+    var i28 int := 28+i;
+    var i29 int := 29+i;
+    var i30 int := 30+i;
+    var i31 int := 31+i;
+    var i32 int := 32+i;
+    var i33 int := 33+i;
+    var i34 int := 34+i;
+    var i35 int := 35+i;
+    var i36 int := 36+i;
+    var i37 int := 37+i;
+    var i38 int := 38+i;
+    var i39 int := 39+i;
+    var i40 int := 40+i;
+    var i41 int := 41+i;
+    var i42 int := 42+i;
+    var i43 int := 43+i;
+    var i44 int := 44+i;
+    var i45 int := 45+i;
+    var i46 int := 46+i;
+    var i47 int := 47+i;
+    var i48 int := 48+i;
+    var i49 int := 49+i;
+    var i50 int := 50+i;
+    var i51 int := 51+i;
+    var i52 int := 52+i;
+    var i53 int := 53+i;
+    var i54 int := 54+i;
+    var i55 int := 55+i;
+    var i56 int := 56+i;
+    var i57 int := 57+i;
+    var i58 int := 58+i;
+    var i59 int := 59+i;
+    var i60 int := 60+i;
+    var i61 int := 61+i;
+    var i62 int := 62+i;
+    var i63 int := 63+i;
+    var i64 int := 64+i;
+    var i65 int := 65+i;
+    var i66 int := 66+i;
+    var i67 int := 67+i;
+    var i68 int := 68+i;
+    var i69 int := 69+i;
+    var i70 int := 70+i;
+    var i71 int := 71+i;
+    var i72 int := 72+i;
+    var i73 int := 73+i;
+    var i74 int := 74+i;
+    var i75 int := 75+i;
+    var i76 int := 76+i;
+    var i77 int := 77+i;
+    var i78 int := 78+i;
+    var i79 int := 79+i;
+    var i80 int := 80+i;
+    var i81 int := 81+i;
+    var i82 int := 82+i;
+    var i83 int := 83+i;
+    var i84 int := 84+i;
+    var i85 int := 85+i;
+    var i86 int := 86+i;
+    var i87 int := 87+i;
+    var i88 int := 88+i;
+    var i89 int := 89+i;
+    var i90 int := 90+i;
+    var i91 int := 91+i;
+    var i92 int := 92+i;
+    var i93 int := 93+i;
+    var i94 int := 94+i;
+    var i95 int := 95+i;
+    var i96 int := 96+i;
+    var i97 int := 97+i;
+    var i98 int := 98+i;
+    var i99 int := 99+i;
+
+    if (i == 0) {
+      return;
+    } else {
+      printint(
+i0+i1+i2+i3+i4+i5+i6+i7+i8+i9+i10+i11+i12+i13+i14+i15+i16+i17+
+i18+i19+i20+i21+i22+i23+i24+i25+i26+i27+i28+i29+i30+i31+i32+i33+
+i34+i35+i36+i37+i38+i39+i40+i41+i42+i43+i44+i45+i46+i47+i48+i49+
+i50+i51+i52+i53+i54+i55+i56+i57+i58+i59+i60+i61+i62+i63+i64+i65+
+i66+i67+i68+i69+i70+i71+i72+i73+i74+i75+i76+i77+i78+i79+i80+i81+
+i82+i83+i84+i85+i86+i87+i88+i89+i90+i91+i92+i93+i94+i95+i96+i97+
+i98+i99
+      );
+      printstring(" ");
+      functionWithLocals(i-1);
+    }
+
+}
+
+functionWithLocals(10);
+return 0;

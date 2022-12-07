@@ -1,0 +1,3 @@
+if (1) { if (0) { exit(1); } else { printint(4); } } else { exit(2); }
+if (0) { exit(3); } else { if (1) { printint(73); } else { exit(4); } }
+exit(0);

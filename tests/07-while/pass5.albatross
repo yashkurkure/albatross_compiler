@@ -1,0 +1,10 @@
+var n int := 0;
+
+n := 473;
+while (n - n) {
+  printint(0);
+  exit(1);
+}
+
+printint(473);
+return 0;

@@ -1,0 +1,12 @@
+var i1 int := 1000;
+var i2 int := 0;
+
+i1 := 2000;
+i1 := 10;
+repeat (i1) {
+  i2 := i2 + 1;
+}
+i1 := 3000;
+
+printint(i2);
+return 0;

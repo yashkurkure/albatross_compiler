@@ -1,0 +1,17 @@
+var n int := 0;
+var calledOnce int := 0;
+
+fun f int () {
+  if (calledOnce == 1) {
+    printstring("Should not happen");
+    exit(1);
+  }
+  calledOnce := 1;
+  return 5;
+}
+
+repeat (f()) {
+  n := n + 1;
+  printint(n);
+}
+return 0;

@@ -1,0 +1,6 @@
+fun f int () {
+  return 1;
+}
+
+printint(f());
+return 0;

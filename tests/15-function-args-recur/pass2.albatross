@@ -1,0 +1,11 @@
+var i int := 10;
+
+fun recursive void () {
+  if (i == 0) { return; }
+  printint(i);
+  i := i - 1;
+  recursive();
+}
+
+recursive();
+return 0;

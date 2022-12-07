@@ -1,0 +1,7 @@
+fun f void (i int) {
+  printint(i);
+  return;
+}
+
+f(473);
+return 0;

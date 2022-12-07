@@ -1,0 +1,2383 @@
+.data
+		_glob_string0: .asciiz " "			# STRING VAR: DEFINITION
+.text
+		sw $fp, ($sp)			# PUSH store $fp on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 10			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		move $fp, $sp			# CALL EXP: ADJUST FRAME POINTER
+		addiu $fp, $fp, 4			# CALL EXP: ADJUST FRAME POINTER
+		jal functionWithLocals			# CALL EXP: JUMP TO CALLEE
+		li $v0, 0			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		move $a0, $v0			# EXIT pass return code
+		li $v0, 17			# EXIT specify exit2 as the syscall
+		syscall			# EXIT perform syscall
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		move $a0, $v0			# EXIT pass return code
+		li $v0, 17			# EXIT specify exit2 as the syscall
+		syscall			# EXIT perform syscall
+
+		functionWithLocals:			# FUNCTION DECLARATION
+		li $v0, 0			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 1			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 2			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 3			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 4			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 5			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 6			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 7			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 8			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 9			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 10			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 11			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 12			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 13			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 14			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 15			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 16			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 17			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 18			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 19			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 20			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 21			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 22			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 23			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 24			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 25			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 26			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 27			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 28			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 29			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 30			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 31			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 32			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 33			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 34			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 35			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 36			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 37			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 38			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 39			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 40			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 41			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 42			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 43			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 44			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 45			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 46			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 47			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 48			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 49			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 50			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 51			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 52			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 53			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 54			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 55			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 56			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 57			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 58			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 59			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 60			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 61			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 62			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 63			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 64			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 65			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 66			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 67			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 68			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 69			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 70			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 71			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 72			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 73			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 74			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 75			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 76			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 77			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 78			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 79			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 80			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 81			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 82			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 83			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 84			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 85			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 86			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 87			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 88			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 89			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 90			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 91			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 92			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 93			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 94			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 95			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 96			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 97			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 98			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 99			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		sw $ra, ($sp)			# PUSH store $ra on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 0			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		seq $v0, $v0, $v1			# BINOP EQUAL
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		beq $v0, $zero, L1			# IF STMT: CONDITION 0 JUMP TO EXIT
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $ra, ($sp)			# POP load top of stack into $ra
+		move $sp, $fp			# RETURN: RESTORE STACK FOR RETURN
+		addi $sp, $sp, 4			# RETURN: RESTORE STACK FOR RETURN
+		lw $fp, 4($fp)			# RETURN: RESTORE FRAME TO PREVIOUS FRAME
+		jr $ra			# RETURN: return to next instruction
+		j L0			# IF STMT: JUMP TO EXIT THEN CLAUSE
+L1: # IF STMT: JMP HERE WHEN CONDITION FALSE
+		lw $v0, -4($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -8($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -12($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -16($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -20($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -24($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -28($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -32($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -36($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -40($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -44($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -48($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -52($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -56($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -60($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -64($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -68($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -72($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -76($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -80($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -84($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -88($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -92($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -96($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -100($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -104($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -108($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -112($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -116($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -120($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -124($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -128($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -132($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -136($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -140($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -144($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -148($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -152($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -156($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -160($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -164($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -168($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -172($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -176($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -180($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -184($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -188($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -192($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -196($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -200($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -204($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -208($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -212($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -216($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -220($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -224($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -228($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -232($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -236($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -240($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -244($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -248($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -252($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -256($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -260($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -264($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -268($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -272($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -276($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -280($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -284($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -288($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -292($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -296($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -300($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -304($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -308($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -312($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -316($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -320($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -324($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -328($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -332($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -336($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -340($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -344($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -348($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -352($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -356($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -360($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -364($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -368($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -372($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -376($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -380($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -384($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -388($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -392($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -396($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, -400($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		add $v0, $v0, $v1			# BINOP ADD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		move $a0, $v0			# PRINTINT pass int to print
+		li $v0, 1			# PRINTINT specify print_int as the syscall
+		syscall			# PRINTINT perform syscall
+		la $v0, _glob_string0			# EXP: STRING VAR
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		move $a0, $v0			# PRINTSTRING pass string to print
+		li $v0, 4			# PRINTSTRING specify print_string as the syscall
+		syscall			# PRINTSTRING perform syscall
+		sw $fp, ($sp)			# PUSH store $fp on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		lw $v0, 0($fp)			# VAR EXP: load value of local/arg
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		li $v0, 1			# INT EXP: LOAD
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v1, ($sp)			# POP load top of stack into $v0
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $v0, ($sp)			# POP load top of stack into $v0
+		sub $v0, $v0, $v1			# BINOP SUB
+		sw $v0, ($sp)			# PUSH store $v0 on top of stack
+		subi $sp, $sp, 4			# PUSH adjust $sp to next unused position
+		move $fp, $sp			# CALL EXP: ADJUST FRAME POINTER
+		addiu $fp, $fp, 4			# CALL EXP: ADJUST FRAME POINTER
+		jal functionWithLocals			# CALL EXP: JUMP TO CALLEE
+L0: # IF STMT: EXIT IF STATEMENT
+		addi $sp, $sp, 4			# POP adjust $sp to previous position
+		lw $ra, ($sp)			# POP load top of stack into $ra
+		move $sp, $fp			# RETURN: RESTORE STACK FOR RETURN
+		addi $sp, $sp, 4			# RETURN: RESTORE STACK FOR RETURN
+		lw $fp, 4($fp)			# RETURN: RESTORE FRAME TO PREVIOUS FRAME
+		jr $ra			# RETURN: return to next instruction

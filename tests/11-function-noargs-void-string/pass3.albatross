@@ -1,0 +1,7 @@
+fun f void () {
+  printstring("CS473");
+  return;
+}
+
+f();
+return 0;

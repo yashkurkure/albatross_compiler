@@ -1,0 +1,7 @@
+fun factorial int (i int) {
+  if (i == 0) { return 1; }
+  else { return i * factorial(i-1); }
+}
+
+printint(factorial(10));
+return 0;

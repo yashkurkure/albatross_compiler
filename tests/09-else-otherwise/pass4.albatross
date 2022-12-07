@@ -1,0 +1,2 @@
+while (0) { exit(1); } otherwise { printint(473); }
+exit(0);

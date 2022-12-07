@@ -1,0 +1,26 @@
+var n int := 0;
+var called int := 0;
+
+fun f int () {
+  if (called > 10) {
+    printstring("Should not happen");
+    exit(1);
+  }
+
+  if (called == 0) {
+    called := 1;
+    return 10;
+  }
+
+  called := called + 1;
+  return 5;
+}
+
+repeat (f()) {
+  n:=0;
+  repeat (f()) {
+    n := n + 1;
+    printint(n);
+  }
+}
+return 0;

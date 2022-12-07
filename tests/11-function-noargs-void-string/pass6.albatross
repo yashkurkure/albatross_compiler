@@ -1,0 +1,6 @@
+fun f string () {
+  return "hello";
+}
+
+printstring(f());
+return 0;

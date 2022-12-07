@@ -1,0 +1,11 @@
+if (0<0)  { printint(1);  }
+if (0<0)  { printint(2);  }
+if (0<=0) { printint(3);  }
+if (0<=0) { printint(4);  }
+if (0>0)  { printint(5);  }
+if (0>0)  { printint(6);  }
+if (0>=0) { printint(7);  }
+if (0>=0) { printint(8);  }
+if (0==0) { printint(9);  }
+if (0<>0) { printint(10); }
+exit(0);

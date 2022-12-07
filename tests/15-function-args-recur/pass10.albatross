@@ -1,0 +1,18 @@
+var result int := 0;
+var n int := 0;
+
+fun factorial int (i int) {
+  if (i == 0) { return 1; }
+  else {
+    result := i * factorial(i-1);
+    return result;
+  }
+}
+
+repeat(15) {
+    factorial(n);
+    printint(result);
+    printstring(" ");
+    n := n+1;
+}
+return 0;

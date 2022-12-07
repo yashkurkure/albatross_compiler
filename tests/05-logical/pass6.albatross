@@ -1,0 +1,3 @@
+if (!0)    { printint(1); }
+if (!1)    { printint(2); }
+exit(0);

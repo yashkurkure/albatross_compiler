@@ -1,0 +1,8 @@
+fun f void (s string, i int) {
+  printstring(s);
+  printint(i);
+  return;
+}
+
+f("CS 473 UIC ", 2022);
+return 0;

@@ -1,0 +1,9 @@
+repeat (2) {
+  printstring("CS");
+  printint(473);
+}
+repeat(0) {
+  printstring("Should not execute");
+  exit(1);
+}
+return 0;

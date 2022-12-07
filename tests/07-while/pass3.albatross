@@ -1,0 +1,7 @@
+while (0) {
+  printint(0);
+  exit(1);
+}
+
+printint(473);
+return 0;

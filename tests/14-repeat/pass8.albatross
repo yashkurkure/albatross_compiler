@@ -1,0 +1,33 @@
+var i1 int := 1;
+var i2 int := 2;
+var i3 int := 3;
+
+fun f1 int () {
+  return 1;
+}
+
+fun f2 int () {
+  return 2;
+}
+
+fun f3 int () {
+  return 3;
+}
+
+repeat (i3*f1()) {
+  repeat (i2*f1()) {
+    repeat (i1*f1()) {
+        repeat (f1()*f1()) {
+            repeat (i3*f1()) {
+              repeat (i2*f1()) {
+                repeat (i1*f1()) {
+                    repeat (f1()*f1()) {
+                      printint(i3);
+                    }
+                }
+              }
+            }
+        }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+fun f string (i1 int, i2 int, i3 int, i4 int) {
+  printint(i1 + i2 * i3 - i4);
+  return "CS";
+}
+
+printstring(f(100,200,300,100));
+return 0;

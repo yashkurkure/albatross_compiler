@@ -1,0 +1,11 @@
+var n int := 0;
+
+fun f int () {
+  return 10;
+}
+
+repeat (f()) {
+  n := n + 1;
+  printint(n);
+}
+return 0;

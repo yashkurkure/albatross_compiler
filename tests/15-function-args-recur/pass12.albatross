@@ -1,0 +1,34 @@
+var mm int := 0;
+var nn int := 0;
+
+fun ackermann int (m int,n int) {
+    if (m ==0 ) {
+        return n+1;
+    }
+    if (m>0 && n==0) {
+      return ackermann(m-1,1);
+    }
+    if (m>0 && n>0) {
+      return ackermann(m-1,ackermann(m,n-1));
+    }
+    return 0;
+}
+
+while (mm <= 3) {
+  nn := 0;
+  while (nn <= 3) {
+    printstring("m: ");
+    printint(mm);
+    printstring(" n: ");
+    printint(nn);
+    printstring(" => ");
+    printint(ackermann(mm,nn));
+    printstring("        ");
+
+    nn := nn + 1;
+  }
+
+  mm := mm + 1;
+}
+
+return 0;

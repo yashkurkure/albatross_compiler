@@ -1,0 +1,35 @@
+var space string := " ";
+var variable int := 1;
+
+fun f int () {
+  if (variable) {
+    return 2;
+  }
+  return 1;
+}
+
+fun g int () {
+  while (variable) {
+    variable := variable - 1;
+    if (variable == 10) {
+      return 7;
+    }
+    printint(variable);
+    printstring(space);
+  }
+  return 473;
+}
+
+printint(f());
+printstring(space);
+variable := 0;
+printint(f());
+printstring(space);
+variable := 9;
+printint(g());
+printstring(space);
+variable := 20;
+printint(g());
+printstring(space);
+
+return 0;

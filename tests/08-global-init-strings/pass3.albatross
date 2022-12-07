@@ -1,0 +1,6 @@
+var v1 int := 400;
+var v2 int := v1 + 70;
+var v3 int := v2 + 3;
+
+printint(v3+0*1);
+return 0;

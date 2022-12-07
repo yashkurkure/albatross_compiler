@@ -1,0 +1,8 @@
+var i int := 10;
+
+repeat (i) {
+  i := i + 1;
+}
+
+printint(i);
+exit(0);

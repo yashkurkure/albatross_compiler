@@ -1,0 +1,6 @@
+fun f int (i1 int, i2 int) {
+  return i1+i2;
+}
+
+printint(f(400,73));
+return 0;

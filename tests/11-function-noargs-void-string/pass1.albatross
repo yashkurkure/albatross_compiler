@@ -1,0 +1,7 @@
+fun f void () {
+  printint(200);
+  return;
+}
+
+f();
+return 0;

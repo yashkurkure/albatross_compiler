@@ -1,0 +1,16 @@
+fun f1 int () {
+  printint(4);
+  return 0;
+}
+
+fun f2 int () {
+  printint(7);
+  return 0;
+}
+
+fun f3 int () {
+  printint(3);
+  return 0;
+}
+
+return f1() + f2() + f3();

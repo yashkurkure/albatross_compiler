@@ -1,0 +1,29 @@
+fun ackermann int (m int,n int) {
+    if (m ==0 ) {
+        printint(n+1);
+        printstring(" ");
+        return n+1;
+    }
+    if (m>0 && n==0) {
+      printstring("ackermann(");
+      printint(m-1);
+      printstring(",1) ");
+      return ackermann(m-1,1);
+    }
+    if (m>0 && n>0) {
+      printstring("ackermann(");
+      printint(m-1);
+      printstring(",ackermann(");
+      printint(m);
+      printstring(",");
+      printint(n-1);
+      printstring(")) ");
+      return ackermann(m-1,ackermann(m,n-1));
+    }
+    return 0;
+}
+
+printint(ackermann(1,1));
+printint(ackermann(2,1));
+printint(ackermann(3,4));
+return 0;

@@ -1,0 +1,4 @@
+var variable int := 400 + 70 + 3;
+
+printint(variable);
+return 0;

@@ -1,0 +1,2 @@
+if (0) { exit(1); } else { if (1) { printint(473); } else { exit(4); } }
+exit(0);

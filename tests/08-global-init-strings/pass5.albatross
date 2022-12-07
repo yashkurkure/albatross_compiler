@@ -1,0 +1,13 @@
+var cs string := "CS";
+var course int := 473;
+var uic string := "UIC";
+var year int := 2022;
+var space string := " ";
+printstring(cs);
+printstring(space);
+printint(course);
+printstring(space);
+printstring(uic);
+printstring(space);
+printint(year);
+return 0;

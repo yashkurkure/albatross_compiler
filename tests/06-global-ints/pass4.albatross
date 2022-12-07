@@ -1,0 +1,10 @@
+var variable int := 0;
+
+printint(variable);
+variable := variable + 400;
+printint(variable);
+variable := variable + 70;
+printint(variable);
+variable := variable + 4;
+printint(variable);
+return 0;

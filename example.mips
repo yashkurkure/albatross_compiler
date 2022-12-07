@@ -1,0 +1,13 @@
+.data
+
+s:	.asciiz "CS473"
+
+.text
+
+	la $a0, s		# Load address of string into $a0
+	li $v0, 4		# Specify print_int syscall by writing 4 into register $v0
+	syscall			# Perform print_string syscall
+	li $a0,0		# Load zero into $a0
+	move $a0,$zero	# This is another way to load zero into $a0
+	li $v0, 17		# Specify exit2 syscall by writing 17 into register $v0
+	syscall			# Perform exit2 syscall

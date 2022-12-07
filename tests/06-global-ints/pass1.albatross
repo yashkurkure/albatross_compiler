@@ -1,0 +1,4 @@
+var variable int := 0;
+
+printint(variable);
+return 0;

@@ -1,0 +1,4 @@
+var n int := 1;
+
+while (n) { printint(473); n := 0; } otherwise { printint(0); }
+exit(0);
