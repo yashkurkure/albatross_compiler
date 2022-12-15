@@ -25,14 +25,14 @@ The compiler works in the following stages:
 
 ## Usage
 
-To create the executable of the compiler use make
+To create the executable of the compiler use `make`. This should generate an executable named `albatrosscc`.
 
 Then use the `albatrosscc` to compile your program.
 
 ```bash
 ./albatrosscc <in.albatross> <out.mips>
 ```
-in.albatross is some file that contains your albatross program, and out.mips is the file where the generated mips instructions would be stored.
+`in.albatross` is some file that contains your albatross program, and `out.mips` is the file where the generated mips instructions would be written.
 
 
 ## Testing
